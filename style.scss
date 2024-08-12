@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
 
 :root {
     --primary: #315507;        /* Primary color */
@@ -11,18 +15,114 @@
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif; /* Apply Plus Jakarta Sans font */
-    background-color: var(--body);                 /* Set background color using CSS variable */
+    font-family: 'Roboto', sans-serif; /* Apply Roboto font for body text */
+    background-color: var(--body);     /* Set background color using CSS variable */
+    line-height: 1.6;                   /* Improve line height for better readability */
+    margin: 0;                          /* Remove default margin */
+    padding: 0;                         /* Remove default padding */
+}
+
+.text{
+    margin-top:0px;
+}
+.text h1{
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 24px;
+    text-align: center;
+}
+.text h2{
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 20px;
+    text-align: center;
+}
+.text h3{
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+
+.img-fluid-animated-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: imageAnimation 2s ease-in-out; /* Animation for image on load */
+}
+
+@keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat font for headings */
+    font-weight: 700;                     /* Bold font weight for headings */
+    color: var(--black);                  /* Set color for headings */
+    margin: 0;                            /* Remove default margin */
+}
+
+h1 {
+    font-size: 2.5rem; /* Font size for h1 */
+    margin-bottom: 24px; /* Space below h1 */
+    
+}
+
+h2 {
+    font-size: 2rem; /* Font size for h2 */
+    margin-bottom: 20px; /* Space below h2 */
+}
+
+h3 {
+    font-size: 1.75rem; /* Font size for h3 */
+    margin-bottom: 18px; /* Space below h3 */
+}
+
+h4 {
+    font-size: 1.5rem; /* Font size for h4 */
+    margin-bottom: 16px; /* Space below h4 */
+}
+
+h5 {
+    font-size: 1.25rem; /* Font size for h5 */
+    margin-bottom: 14px; /* Space below h5 */
+}
+
+h6 {
+    font-size: 1rem; /* Font size for h6 */
+    margin-bottom: 12px; /* Space below h6 */
 }
 
 .btn {
     border-radius: 8px; /* Rounded corners for buttons */
-    padding: 12px 20px; /* Padding for buttons */
+    padding: 10px 20px; /* Padding for buttons */
     font-size: 16px; /* Font size for buttons */
-    font-weight: bold; /* Bold font weight for buttons */
-    line-height: 24px; /* Line height for buttons */
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background and transform */
+    font-weight: 500; /* Medium font weight for buttons */
+    line-height: 1.5; /* Line height for buttons */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Smooth transition for background, transform and shadow */
     cursor: pointer; /* Pointer cursor on hover */
+    animation: buttonAnimation 0.5s ease-in-out; /* Animation for buttons on load */
+    margin: 10px; /* Space around buttons */
 }
 
 .btn-primary {
@@ -33,14 +133,15 @@ body {
 
 .btn-primary:hover {
     background-color: var(--primary-dark); /* Background color on hover for primary button */
-    transform: translateY(-2px); /* Slight lift effect on hover */
+    transform: translateY(-3px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Shadow more on hover */
 }
 
 .btn-outline-secondary {
     border: 2px solid var(--gray-2); /* Thicker border color for outline button */
     background-color: transparent; /* Transparent background for outline button */
     color: var(--gray-1); /* Text color for outline button */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and color */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Smooth transition for background, color and transform */
 }
 
 .btn-outline-secondary:hover,
@@ -48,52 +149,107 @@ body {
     background-color: var(--gray-2); /* Background color on hover and focus */
     color: var(--black); /* Text color on hover and focus */
     border-color: var(--gray-2); /* Border color on hover and focus */
-}
-
-.navbar .btn-outline-secondary {
-    font-size: 14px;                  /* Font size for button */
-    font-weight: 500;                 /* Font weight for button */
-    line-height: 20px;                /* Line height for button */
-    padding: 10px 16px;               /* Padding for button */
+    transform: scale(1.05); /* Scale effect on hover */
 }
 
 .nav-link {
-    margin-left: 41px;                /* Margin for navbar links */
+    margin-left: 20px;                /* Margin for navbar links */
     font-size: 16px;                  /* Font size for navbar links */
     color: var(--gray-1);             /* Text color for navbar links */
     text-decoration: none;             /* Remove underline from links */
+    transition: color 0.3s;           /* Smooth transition for link color */
 }
 
 .nav-link:hover {
     color: var(--primary);             /* Change color on hover */
 }
 
-.navbar-nav .nav-link.active {
-    font-weight: bold;            /* Make the active link bold */
-    color: var(--black);          /* Set the text color of the active link */
-}
-
 section.hero {
-    padding: 80px 0; /* Padding for the hero section */
+    padding: 80px 20px; /* Padding for the hero section */
     text-align: center; /* Center align text in hero section */
 }
 
 section.hero .text {
-    font-weight: 800; /* Bold font weight */
+    font-weight: 600; /* Medium font weight for hero text */
     font-size: 48px;  /* Font size for the text */
-    line-height: 73px; /* Line height for the text */
+    line-height: 1.2; /* Line height for the text */
     color: var(--black); /* Text color */
+    animation: fadeIn 1s ease-in-out; /* Animation for text */
+    margin-bottom: 40px; /* Space below hero text */
 }
 
-.buttons {
-    padding-top: 69px; /* Padding for the buttons section */
+.icons {
+    display: flex; /* Use flexbox for icons */
+    flex-direction: column; /* Arrange icons in a column */
+    align-items: center; /* Center icons horizontally */
 }
 
-.buttons .btn {
-    padding: 12px 24px; /* Padding for buttons */
-}
 .icons img {
-    width: 180px; /* عرض ثابت برای آیکون‌ها */
-    height: auto; /* حفظ نسبت ابعاد */
-    margin-bottom: 15px; /* فاصله زیر آیکون */
+    width: 180px; /* Fixed width for icons */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 15px; /* Margin below icon */
+    transition: transform 0.3s, opacity 0.3s; /* Animation for icons */
+    animation: imageAnimation 0.5s ease-in-out; /* Animation for images on load */
+}
+
+.icons img:hover {
+    transform: scale(1.1); /* Scale effect on hover */
+    opacity: 0.8; /* Slightly reduce opacity on hover */
+}
+
+section.setup {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s; /* Transition for setup section */
+    padding: 40px 20px; /* Padding for setup section */
+    margin: 20px 0; /* Margin for spacing around setup section */
+}
+
+section.setup.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar {
+    transition: background-color 0.3s; /* Transition for navbar background color */
+    padding: 10px 20px; /* Padding for navbar */
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.9); /* Change background color when scrolled */
+}
+
+/* Animation for buttons */
+@keyframes buttonAnimation {
+    from {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animation for images */
+@keyframes imageAnimation {
+    from {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
